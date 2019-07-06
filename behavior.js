@@ -1,9 +1,27 @@
+//calculate and print
 function run() {
+
+
     var total = document.getElementById("total").value;
     var rating = document.getElementById("quality").value;
     var party = document.getElementById("party").value;
 
-    //put in the checks to make sure the total and party inputs are valid
+    //check for valid input in total and party fields
+    //need to make error messages disappear when fields are changed to valid inputs
+
+    if (isNaN(total) && isNaN(party)) {
+        error.innerHTML = "Enter a valid total and party size";
+        return;
+
+    } else if (isNaN(total)) {
+        error.innerHTML = "Enter a valid total";
+        return;
+
+    } else if (isNaN(party)) {
+        error.innerHTML = "Enter a valid party size";
+        return;
+
+    } else {
 
 
     var serviceQuality = [  "5star",
@@ -18,8 +36,10 @@ function run() {
     var recommendedTip = ((total * tipPercentage) / party);
     var print = document.getElementById("recommendation");
     print.innerHTML = "Suggested tip: $" + recommendedTip;
+    }
 }
 
+//click handler
 window.onload = init;
 
 function init() {
@@ -29,4 +49,4 @@ function init() {
 
     }
 }
-//click handler
+
