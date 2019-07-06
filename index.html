@@ -6,11 +6,42 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="styling.css">
     </head>
     <body>
 
+
+<div class="wrapper">
+
+    <h1>Tip calculator</h1>
+            <div class="formItem">
+                <label for="total">How much is the bill?</label>
+                <input id="total" type="text" name="billTotal" autofocus>
+            </div>
+            <div class="formItem">
+                <label for="quality">How was your service?</label>
+                <select id="quality" name="serviceQuality" size="1">
+                    <option value="5star">5 stars - The service was great!</option>
+                    <option value="4star">4 stars - It was pretty good.</option>
+                    <option value="3star">3 stars - Eh, alright.</option>
+                    <option value="2star">2 stars - I've definitely had better.</option>
+                    <option value="1star">1 star - I would like to speak to the manager.</option>
+                    </select>
+            </div>  
+            <div class="formItem">
+                <label for="party">How many people are splitting the bill?</label>
+                <input id="party" type="text" name="partySize">
+            </div>
+            <div class="button">
+                <button id="submitButton" type="button">Calculate</button>
+            </div>
+            <div><p id="recommendation"></p></div>
+            <div><p id="error"></p></div>
+
+
+
+</div>
         
-        <script src="" async defer></script>
+        <script src="behavior.js" async defer></script>
     </body>
 </html>
