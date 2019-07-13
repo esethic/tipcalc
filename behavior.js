@@ -9,21 +9,23 @@ function run() {
     //check for valid input in total and party fields
     //need to make error messages disappear when fields are changed to valid inputs
 
-    if (isNaN(total) && isNaN(party)) {
+    if (total ==="" && party ==="") {
+        error.innerHTML = "Enter your total and party size";
+    } else if (total ==="") {
+        error.innerHTML = "Enter your total";
+    } else if (party === "") {
+        error.innerHTML = "Enter your party size";
+    } else if (isNaN(total) && isNaN(party)) {
         error.innerHTML = "Enter a valid total and party size";
-        return;
-
     } else if (isNaN(total)) {
         error.innerHTML = "Enter a valid total";
-        return;
-
     } else if (isNaN(party)) {
         error.innerHTML = "Enter a valid party size";
-        return;
+    } else
+    
+    {
 
-    } else {
-
-
+    error.innerHTML = "";
     var serviceQuality = [  "5star",
                             "4star",
                             "3star",
@@ -34,8 +36,9 @@ function run() {
     var tipPercentage = percentage[service];
 
     var recommendedTip = ((total * tipPercentage) / party);
+    var tipRounded = recommendedTip.toFixed(2);
     var print = document.getElementById("recommendation");
-    print.innerHTML = "Suggested tip: $" + recommendedTip;
+    print.innerHTML = "Suggested tip<br>$" + tipRounded;
     }
 }
 

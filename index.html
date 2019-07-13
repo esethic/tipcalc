@@ -3,10 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Calculate your tip</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styling.css">
+        <link href="https://fonts.googleapis.com/css?family=Baloo|Yrsa&display=swap" rel="stylesheet">
     </head>
     <body>
 
@@ -15,11 +16,11 @@
 
     <h1>Tip calculator</h1>
             <div class="formItem">
-                <label for="total">How much is the bill?</label>
+                <label for="total">How much is the bill?</label><br>
                 <input id="total" type="text" name="billTotal" autofocus>
             </div>
             <div class="formItem">
-                <label for="quality">How was your service?</label>
+                <label for="quality">How was your service?</label><br>
                 <select id="quality" name="serviceQuality" size="1">
                     <option value="5star">5 stars - The service was great!</option>
                     <option value="4star">4 stars - It was pretty good.</option>
@@ -29,14 +30,14 @@
                     </select>
             </div>  
             <div class="formItem">
-                <label for="party">How many people are splitting the bill?</label>
+                <label for="party">How many people are splitting the bill?</label><br>
                 <input id="party" type="text" name="partySize">
             </div>
             <div class="button">
                 <button id="submitButton" type="button">Calculate</button>
             </div>
-            <div><p id="recommendation"></p></div>
-            <div><p id="error"></p></div>
+            <div class="output"><p id="recommendation"></p></div>
+            <div class="alerts"><p id="error"></p></div>
 
 
 
