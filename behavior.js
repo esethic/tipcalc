@@ -1,4 +1,6 @@
-//calculate and print
+//OLD MESSY ALL IN ONE FUNCTION
+/*
+
 function run() {
 
 
@@ -40,7 +42,61 @@ function run() {
     var print = document.getElementById("recommendation");
     print.innerHTML = "Suggested tip<br>$" + tipRounded;
     }
+} */
+
+//UPDATED FUNCTION
+
+function run() {
+    let collectInput = getInput();
+    console.log(collectInput);
+
+    validate(collectInput);
 }
+
+function getInput() {
+    var total = document.getElementById("total").value;
+    var rating = document.getElementById("quality").value;
+    var party = document.getElementById("party").value;
+
+    console.log(total);
+    return input = [total, rating, party];
+}
+
+function validate(values) {
+    if (typeof values[0] === "string" && typeof values[2] === "string") {
+        console.log("This data is correct");
+    } else {
+        console.log("Ya datas wrong son");
+    }
+}
+
+function calculate() {
+
+}
+
+function print() {
+
+}
+
+/* ALRIGHT SO WE FIXIN THIS FUNCTION AFTER 8 MONTHS
+
+Run function is not abstracted at all. No modularity. Break it into smaller blocks:
+1. grab values
+    - get elements and save them to variables
+
+2. validate input
+    - check inputs and determine they are the correct format.
+
+3. perform calculation
+    - if inputs are valid, perform calculation. If inputs are not correct, do not perform calculation.
+
+4. update page
+    - update page with either an error message or the calculation.
+    - determined by validate step.
+*/
+
+
+
 
 //click handler
 window.onload = init;
@@ -52,4 +108,7 @@ function init() {
 
     }
 }
+
+
+
 
