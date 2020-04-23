@@ -1,12 +1,12 @@
 function run() {
-    let collectInput = getInput();
-    let errorCheck = validate(collectInput);
+    const collectInput = getInput();
+    const errorCheck = validate(collectInput);
 
-    let printError = document.getElementById("error");
-    let printRec = document.getElementById("recommendation");
+    const printError = document.getElementById("error");
+    const printRec = document.getElementById("recommendation");
 
     if (errorCheck === "") {
-    let tipRecommend = calculate(collectInput);
+    const tipRecommend = calculate(collectInput);
     printRecommendation(tipRecommend, printRec, printError);
     } else {
     printErrorMsg(errorCheck, printRec, printError);
@@ -16,16 +16,16 @@ function run() {
 
 //collect user input from page
 function getInput() {
-    let total = document.getElementById("total").value;
-    let rating = document.getElementById("quality").value;
-    let party = document.getElementById("party").value;
+    const total = document.getElementById("total").value;
+    const rating = document.getElementById("quality").value;
+    const party = document.getElementById("party").value;
 
     const regExPrice = (/([^0-9.])/g);
     const regExParty = (/([^0-9])/g);
-    let parseTotal = total.replace(regExPrice, '');
+    const parseTotal = total.replace(regExPrice, '');
     
 
-    let parseParty =  party.replace(regExParty, '');
+    const parseParty =  party.replace(regExParty, '');
 
     return [parseTotal, rating, parseParty];
 }
@@ -35,16 +35,19 @@ function validate(values) {
 
     let errorMessage = "";
 
-    if (values[0] === "") {
+    const totalCost = values[0];
+    const partySize = values[2];
+
+    if (totalCost === "") {
         errorMessage += "Enter your total bill<br>";
     }
-    if (isNaN(values[0])) {
+    if (isNaN(totalCost)) {
         errorMessage += "Enter a valid bill amount<br>";
     }
-    if (values[2] === "") {
+    if (partySize === "") {
         errorMessage += "Enter your party size<br>";
     }
-    if (isNaN(values[2])) {
+    if (isNaN(partySize)) {
         errorMessage += "Enter a valid party size<br>";
     }
 
@@ -56,10 +59,10 @@ function validate(values) {
 
 //calculate tip amount
 function calculate(values) {
-    let totalCost = values[0];
-    let serviceQuality = values[1];
-    let partySize = values[2]
-    let serviceMultiplier = [
+    const totalCost = values[0];
+    const serviceQuality = values[1];
+    const partySize = values[2]
+    const serviceMultiplier = [
         .05,
         .1,
         .15,
@@ -67,7 +70,7 @@ function calculate(values) {
         .25
     ];
 
-    let recommendedTip = ((totalCost * serviceMultiplier[serviceQuality])/partySize).toFixed(2);
+    const recommendedTip = ((totalCost * serviceMultiplier[serviceQuality])/partySize).toFixed(2);
     return recommendedTip;
 
 }
@@ -89,7 +92,7 @@ function printRecommendation(tip, recId, errorId) {
 window.onload = init;
 
 function init() {
-    let submitButton = document.getElementById("submitButton");
+    const submitButton = document.getElementById("submitButton");
     submitButton.onclick = function() {
         run();
 
